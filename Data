@@ -1,0 +1,590 @@
+PRATICAL 1) Design a bot using AIML
+
+CODE: We need to create following three files.
+
+1) std-startup.xml
+
+<aiml version="1.0.1" encoding="UTF-8">
+
+<!-- std-startup.xml -->
+
+<category>
+
+<pattern>LOAD</pattern>
+
+<template>
+
+<learn>basic_chat.aiml</learn>
+
+</template>
+
+</category>
+
+</aiml>
+
+2) basic_chat.aiml
+
+<aiml version="1.0.1" encoding="UTF-8">
+
+<!-- basic_chat.aiml -->
+
+<category>
+
+<pattern>HELLO I AM *</pattern>
+
+<template> HELLO <set name="username"> <star/> </set> </template>
+
+</category>
+
+<category>
+
+<pattern>I LIKE * COLOR</pattern>
+
+<template><star index="1"/> is a nice color.</template>
+
+</category>
+
+<category>
+
+<pattern>BYE</pattern>
+
+<template> BYE <get name="username"/> THANKS FOR THE CONVERSATION.
+
+</template>
+
+</category>
+
+</aiml>
+
+3) testbot.py
+
+import aiml
+
+kernel = aiml.Kernel()
+
+kernel.learn("F:\\aaipracts\\std-startup.xml")
+
+kernel.learn("F:\\aaipracts\\basic_chat.aiml")
+
+kernel.respond("LOAD")
+
+# Press CTRL-C to break
+
+this loop
+
+while True:
+
+print( kernel.respond(input("Enter your message >> ")))
+
+
+PRATICAL 2) Implement Bayes Theorem using Python
+
+# calculate the probability of cancer patient and diagnostic test
+
+# calculate P(A|B) given P(A), P(B|A), P(B|not A)
+
+def bayes_theorem(p_a, p_b_given_a, p_b_given_not_a):
+
+# calculate P(not A)
+
+not_a = 1 -
+
+p_a
+
+#
+
+calculate
+
+P(B)
+
+p_b
+
+= p_b_given_a
+
+* p_a
+
++ p_b_given_not_a
+
+* not_a #
+
+calculate P(A|B)
+
+p_a_given_b
+
+= (p_b_given_a * p_a)
+
+/ p_b
+
+return p_a_given_b
+
+# P(A)
+
+p_a
+
+=
+
+0.0002
+
+# P(B|A)
+
+p_b_given_a
+
+=
+
+0.85
+
+# P(B|not A)
+
+p_b_given_not_a
+
+= 0.05
+
+# calculate P(A|B)
+
+result = bayes_theorem(p_a, p_b_given_a, p_b_given_not_a)
+
+# summarize
+
+print('P(A|B) = %.3f%%' % (result * 100))
+
+
+
+PRATICAL 3) Implement Conditional Probability and j
+
+oint probability using
+
+Python.
+
+A) Code for conditional probability:
+
+p
+
+ofB=float(input("Enter number of C programmers in percentage "))
+
+p
+
+ofAandB=float(input("Enter number of C and Java programmers in percentage "))
+
+p
+
+ofB=pofB/100
+
+p
+
+ofAandB=pofAandB/100
+
+p
+
+rint("Event A that student is Java Progammer=?")
+
+p
+
+rint("Event B that student is C Progammer=",pofB)
+
+p
+
+rint("Event A and B that is student knowing both C and Java is =",pofAandB)
+
+p
+
+rint("Lets Calculate P(A|B)= P(A and B) / P(B)")
+
+p
+
+AgivenB=pofAandB /
+
+p
+
+ofB
+
+p
+
+rint("P(A|B)=",pAgivenB
+
+)
+
+p
+
+rint("There are ",pAgivenB *100," % chances that the student that knows C also knows
+
+Java")
+
+
+
+B)Code for Joint Probability:
+
+cardnumber=input("Enter number of
+
+Card") cardcolor=input("Enter color of
+
+Card") pofA=4/52
+
+p
+
+ofB=26/52
+
+p
+
+rint("p(A)=>Probablility of drawing card
+
+with number
+
+",cardnumber,"=",round(pofA,2))
+
+p
+
+rint("p(B)=>Probablility of drawing card with color ",cardcolor," =",round(pofB,2))
+
+p
+
+rint("Joint Probablity of A and B=P(A) * P(B)")
+
+p
+
+AandB=round(pofA
+
+p
+
+ofB,2)
+
+p
+
+rint("P(A and
+
+B)=",pAandB)
+
+p
+
+rint("There are ",pAandB *100," % chances that of getting ",cardcolor, “ card with
+
+number”,
+
+cardnumber)
+
+PRATICAL 4) Design a Fuzzy based application using Python / R .
+
+Code:
+
+elt=['w','x','y','z']
+
+A=[0.5,0.4,0.3,0.2
+
+]
+
+B=[0.2,0.1,0.2,
+
+1] U=[]
+
+print("elements=",elt)
+
+print("set A=",A)
+
+print("set B=",B)
+
+for i in range(0,4):
+
+if A[i]>B[i]:
+
+U.append(A
+
+[i]) else:
+
+U.append(B[i
+
+]) print("Union")
+
+for i in range(0,3):
+
+print(U[i] ,"/",elt[i],end=' + ')
+
+for i in range(3,4):
+
+print(U[i] ,"/",elt[i],end=' ')
+
+print()
+
+I=[]
+
+for i in
+
+range(0,4): if
+
+A[i]<B[i]:
+
+I.append(A
+
+[i]) else:
+
+I.append(B[i])
+
+print()
+
+print("Intersection")
+
+for i in
+
+range(0,3):
+
+print(I[i] ,"/",elt[i],end=' + ')
+
+for i in range(3,4):
+
+print(I[i] ,"/",elt[i],end=' ')
+
+pri
+
+nt(
+
+)
+
+J=[
+
+]
+
+K=[]
+
+C=[1,1,1,
+
+1]
+
+print()
+
+print("Complement of
+
+A")
+
+for i in range(0,4):
+
+J.append(C[i]-A[i])
+
+output=round(J[i],2)
+
+for i in range(0,3):
+
+
+
+print(J[i] ,"/",elt[i],end=' +
+
+')
+
+for i in range(3,4):
+
+print(J[i] ,"/",elt[i],end=' ')
+
+print()
+
+print()
+
+print("Complement of B")
+
+for i in range(0,4):
+
+K.append(C[i]-B[i])
+
+for i in range(0,3):
+
+print(K[i] ,"/",elt[i],end=' + ')
+
+for i in range(3,4):
+
+print(K[i] ,"/",elt[i],end=' ')
+
+L=[]
+
+M=[]
+
+print()
+
+for i in
+
+range(0,4): if
+
+A[i]<K[i]:
+
+L.append(A[i])
+
+else:
+
+L.append(K[i
+
+]) print()
+
+print("Dif
+
+ference of A/B")
+
+for i in range(0,3):
+
+print(L[i] ,"/",elt[i],end=' + ')
+
+for i in range(3,4):
+
+print(L[i] ,"/",elt[i],end=' ')
+
+for i in range(0,4):
+
+if B[i]<J[i]:
+
+M.append(A[
+
+i]) else:
+
+M.append(J[i
+
+]) print()
+
+print("Dif
+
+ference of B/A")
+
+for i in range(0,3):
+
+print(M[i] ,"/",elt[i],end=' + ')
+
+for i in range(3,4):
+
+print(M[i] ,"/",elt[i],end=' ')
+
+print()
+
+Sum=
+
+[]
+
+Sum1
+
+=[]
+
+print()
+
+print("Sum of A and B")
+
+for i in range(0,4):
+
+Sum.append(A[i]+B[i]
+
+)
+
+output=round(Sum[i],
+
+2)
+
+Sum1.append(output)
+
+for i in range(0,3):
+
+print(Sum1[i] ,"/",elt[i],end=' + ')
+
+for i in range(3,4):
+
+print(Sum1[i] ,"/",elt[i],end=' ')
+
+print()
+
+Prod=
+
+[]
+
+Prod1
+
+=[]
+
+print()
+
+print("Product of A and B")
+
+for i in range(0,4):
+
+Prod.append(A[i]*B[i]
+
+)
+
+output=round(Prod[i],
+
+2)
+
+Prod1.append(output)
+
+for i in range(0,3):
+
+print(Prod1[i] ,"/",elt[i],end=' + ')
+
+for i in range(3,4):
+
+print(Prod1[i] ,"/",elt[i],end=' ')
+
+
+PRATICAL 5) Write an application to implement clustering algorithm.
+
+K-Means Clustering:
+
+Code:
+
+newiris <- iris
+
+newiris$Species <-
+
+N
+
+ULL (kc <-
+
+kmeans(newiris,3))
+
+p
+
+rint(kc)
+
+# Compare the Species label with the clustering result.
+
+table (iris$Species,kc$cluster)
+
+p
+
+lot(newiris[c("Sepal.Length","Sepal.Width")],col=kc$cluster)
+
+p
+
+oints(kc$centers[,c("Sepal.Length","Sepal.Width")],col=1:3,pch=8,cex=2)
+
+
+
+
+
+
+PRATICAL 6) Write an application to implement clustering algorithm.
+Code :
+set.seed(10111)
+x=matrix(rnorm(40),20,2)
+y=rep(c(-1,1),c(10,10))
+x[y==1,]=x[y==1,]+1
+plot(x,col=y+3,pch=19)
+# Now you load the package e1071 which contains the svm function. > library(e1071)
+dat = data.frame(x, y = as.factor(y))
+svmfit = svm(y ~ ., data = dat, kernel = "linear", cost = 10, scale = FALSE)
+print(svmfit)
+plot(svmfit, dat)
+make.grid = function(x, n = 75)
+{grange = apply(x, 2, range)
+x1 = seq(from = grange[1,1], to = grange[2,1], length = n) x2 = seq(from = grange[1,2], to =
+grange[2,2], length = n)expand.grid(X1 = x1, X2 = x2)}
+xgrid = make.grid(x)
+xgrid[1:10,]
+ygrid = predict(svmfit, xgrid)
+plot(xgrid, col = c("red","blue")[as.numeric(ygrid)], pch = 20, cex = .2)
+points(x, col = y + 3, pch = 19)
+points(x[svmfit$index,], pch = 5, cex = 2)
+beta = drop(t(svmfit$coefs)%*%x[svmfit$index,])
+beta0 = svmfit$rho
+plot(xgrid, col = c("red", "blue")[as.numeric(ygrid)], pch = 20, cex = .2)
+points(x, col = y + 3, pch = 19)
+points(x[svmfit$index,], pch = 5, cex = 2)
+abline(beta0 / beta[2], -beta[1] / beta[2])
+abline((beta0 - 1) / beta[2], -beta[1] / beta[2], lty = 2)
+abline((beta0 + 1) / beta[2], -beta[1] / beta[2], lty = 2)
+
+
+
+
+
+
+
